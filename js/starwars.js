@@ -7,14 +7,14 @@ $.ajax({
     url: 'https://swapi.co/api/films/',
     dataType: 'json',
     success: function(resposta) {
+      
       console.log(resposta);
 
       let titulos = resposta.results;
       
       titulos.forEach(element => {
-          $('<li>'+ element.title + '</li>').appendTo('#filmes ul');
+          $('<li data-id-episodio=\"'+ element.episode_id +'\">Episode '+ element.episode_id + ' ' + element.title + '</li>').appendTo('#filmes ul');
       });
 
-      
     }
   });
