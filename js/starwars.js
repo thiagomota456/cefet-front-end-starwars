@@ -9,15 +9,11 @@ $.ajax({
     success: function(resposta) {
       console.log(resposta);
 
-      let titulos = resposta.results
-      let index = 4
-      var movies  = ''
+      let titulos = resposta.results;
+      
       titulos.forEach(element => {
-          movies = '<li>'+ element.title + '</li>'
-          //$('<div>'+ element.title + '</div>').appendTo(document.body);
-          $('ul li').html(element)
+          $('<li>'+ element.title + '</li>').appendTo('#filmes ul');
       });
-      //$local_de_filme = $("#filmes ul")
 
       
     }
