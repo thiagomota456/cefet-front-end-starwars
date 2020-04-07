@@ -7,14 +7,18 @@ $.ajax({
     url: 'https://swapi.co/api/films/',
     dataType: 'json',
     success: function(resposta) {
-      
-      console.log(resposta);
-
+      console.log(resposta.results)
       let titulos = resposta.results;
-      
+      let idnumber = 0;
       titulos.forEach(element => {
-          $('<li data-id-episodio=\"'+ element.episode_id +'\">Episode '+ element.episode_id + ' ' + element.title + '</li>').appendTo('#filmes ul');
+          $('<li id=\"' + (idnumber++) + '\"' 
+                        +'data-id-episodio=\"'+ element.episode_id +'\">Episode '+ element.episode_id + ': ' + element.title + '</li>').appendTo('#filmes ul');
       });
 
     }
   });
+
+  $(document).on('click', '#filmes ul li', function(){
+    var plant = document.getElementById(0);
+    window.alert(plant.getAttribute(data-id-episodio))
+  })
